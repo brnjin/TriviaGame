@@ -1,0 +1,16 @@
+h1 {
+	text-align: center;
+	color: purple;
+	font-weight: bolder;
+}
+body {
+	background-image: url("../images/world-map.jpg");
+}
+h2 {
+	font-weight: bold;
+	text-shadow: 2px 2px white;
+}
+#choi {
+	font-weight: bold;
+	text-shadow: 2px 2px white;
+}

@@ -29,7 +29,7 @@ var worldCapitalQuestions = [{
 var game = {
 	correct: 0,
 	incorrect: 0,
-	counter: 120,
+	counter: 45,
 	//Count down timer everytime it is called
 	countDown: function() {
 		game.counter--;
@@ -44,19 +44,19 @@ var game = {
 		//Calls the countDown function every 1 second
 		timer = setInterval(game.countDown, 1000);
 		//Adding in Timer heading at the top
-		$('#subWrapper').prepend('<h2>Time Remaining: <span id = "counter">120</span> Seconds</h2>');
+		$('#subBody').prepend('<h2><center>Time Remaining: <span id = "counter">45</span> Seconds<center></h2>');
 		//Removes the start button once it is clicked
 		$('#startButton').remove();
 			//Loop to get the worldCapitalQuestions object and displays the question 
 			for(var i = 0; i < worldCapitalQuestions.length; i++){
-				$('#subWrapper').append('<h2>' + worldCapitalQuestions[i].question + '</h2>');
+				$('#subBody').append('<h2><center>' + worldCapitalQuestions[i].question + '<center></h2>');
 				//Loop to change the choices into buttons 
 				for(var g = 0; g < worldCapitalQuestions[i].choices.length;g++){
-					$('#subWrapper').append("<input type = 'radio' name = 'question-" + i + "' value='" + worldCapitalQuestions[i].choices[g]+ "'>" + worldCapitalQuestions[i].choices[g]);
+					$('#subBody').append("<center id='choi'><strong><input type = 'radio' name = 'question- " + i + "' value='" + worldCapitalQuestions[i].choices[g]+ "'>" + worldCapitalQuestions[i].choices[g]+ "<strong><center>");
 				}
 			}
 			//Adding in the Done button if the user is done before the timer
-			$('#subWrapper').append('<br><button id="end">Done</button>')
+			$('#subBody').append('<center><br><button id="end" class="btn btn-primary">Done</button><center>')
 	},
 	//Goes through each answer choices and add correct or incorrect +1 counter
 	done: function() {
@@ -94,12 +94,12 @@ var game = {
 	//Used to display how many correct, incorrect, and unanswered
 	result: function(){
 		clearInterval(timer);
-		$('#subWrapper h2').remove();
+		$('#subBody h2').remove();
 
-		$('#subWrapper').html("<h2>All Done!</h2>");
-		$('#subWrapper').append("<h3>Correct Answers: " + this.correct + "</h3>");
-		$('#subWrapper').append("<h3>incorrect Answers: " + this.incorrect + "</h3>");
-		$('#subWrapper').append("<h3>Unanswered: " + (worldCapitalQuestions.length-(this.incorrect))+"</h3>");
+		$('#subBody').html("<h2><center><strong>All Done!<center><strong></h2>");
+		$('#subBody').append("<h3><center><strong>Correct Answers: " + this.correct + "<center><strong></h3>");
+		$('#subBody').append("<h3><center><strong>incorrect Answers: " + this.incorrect + "<center><strong></h3>");
+		$('#subBody').append("<h3><center><strong>Unanswered: " + (worldCapitalQuestions.length-(this.incorrect))+"<center><strong></h3>");
 	}
 }
 
